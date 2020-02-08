@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int main()
@@ -17,26 +18,14 @@ int main()
 		personTime[i] = input;
 	}
 
-	for (int i = 0; i < personCount; ++i)
-	{
-		for (int j = 0; j < personCount - 1; ++j)
-		{
-			if (personTime[j] > personTime[j + 1])
-			{
-				int temp = 0;
-				temp = personTime[j];
-				personTime[j] = personTime[j + 1];
-				personTime[j + 1] = temp;
-			}
-		}
-	}
+	sort(personTime, personTime + personCount);
+
+	int tempSum = 0;
 
 	for (int i = 0; i < personCount; ++i)
 	{
-		for (int j = 0; j <= i; ++j)
-		{
-			sum += personTime[j];
-		}
+		tempSum += personTime[i];
+		sum += tempSum;
 	}
 
 	cout << sum << endl;

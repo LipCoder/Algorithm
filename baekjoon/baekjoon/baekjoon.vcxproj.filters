@@ -24,5 +24,11 @@
     <ClCompile Include="MeetingRoom.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Change.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="rope.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,3 +1,2 @@
-﻿  MeetingRoom.cpp
-C:\Users\KSB\Desktop\github\Algorithm\baekjoon\baekjoon\MeetingRoom.cpp(36,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  baekjoon.vcxproj -> C:\Users\KSB\Desktop\github\Algorithm\baekjoon\Debug\baekjoon.exe
+﻿  소스.cpp
+  baekjoon.vcxproj -> C:\Users\Bum\Desktop\GitHub\Algorithm\baekjoon\Debug\baekjoon.exe
