@@ -1,0 +1,24 @@
+해시(Hash)
+
+키 -> 해시 Function -> 해시 테이블 (각각의 칸들을 해시 버킷(hash bucket)이라고 한다)
+
+만약 키의 value값이 충돌하면 linked list 형식으로 그 뒤에 push_back한다.
+
+C++ STL(Standard Template Library)
+
+std::map O(logN) 
+주로 binary search tree를 이용하여 구현되어있음
+키의 순서가 지켜짐(하지만 항상)(그래서 상수시간은불가능)
+
+vs 
+
+std::unordered_map O(1)
+hash table을 이용하여 구현되어있음
+
+
+unordered_map<이름, 숫자>로 초기화 한 후 참가자를 추가하여 숫자를 하나 증가시키고 완주한 참가자를 찾아 숫자를 하나 감소시킨다. 그리고 0이 아닌 참가자 이름이 완주하지 못한 참가자가 된다.
+
+해쉬를 이용한다면 -> O(N)
+정렬을 이용한다면 -> O(NlogN)
+
+
