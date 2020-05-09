@@ -1,0 +1,40 @@
+알고리즘의 복잡도
+* 최악의 경우 : 
+수가 하나 남을 때까지 섞어야 하는 경우 (n - 1회)
+
+* 각 단계에서 요구되는 계산량 :
+정렬된 리스트에 순서 맞추어 원소 삽입
+O(n)
+
+* 전체 문제 풀이의 복잡도 : 
+O(n^2)
+지나치게 높다.
+
+* 뭔가 더 좋은 방법은 없는가?
+
+보다 나은 방법
+* 최소 / 최대 원소를 빠르게 꺼낼 수 있으면 좋겠는데!
+
+* 힙(heap)
+-> max heap
+-> min heap
+
+힙 성질 -> 최대 / 최소 원소를 빠르게 찾을 수 있다.
+연산 
+-> 힙 구성(heapify)O(NlogN)
+-> 삽입(insert)O(logN)
+-> 삭제(remove)O(logN)
+
+힙의 응용 
+-> 정렬, 우선 순위 큐
+
+
+C++에서 힙 적용
+#include <queue>
+priority_queue<int, vector<int>, greater<int>> q;
+m = q.top();
+q.pop();
+q.push();
+
+스코빌 -> push -> O(NlogN)
+섞는과정 -> O(NlogN)

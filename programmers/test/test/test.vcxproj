@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="더 맵게.cpp" />
     <ClCompile Include="완주하지 못한 선수.cpp" />
     <ClCompile Include="체육복.cpp" />
   </ItemGroup>
