@@ -1,5 +1,5 @@
 import java.util.Stack;
-class Solution {
+class Solution_StoneWall {
 	public int solution(int[] H) {
 		int result = 0;
 		Stack<Integer> s = new Stack<Integer>();
@@ -23,7 +23,7 @@ class Solution {
 public class StoneWall {
 
 	public static void main(String[] args) {
-		Solution s = new Solution();
+		Solution_StoneWall s = new Solution_StoneWall();
 		int[] h = {8, 8, 5, 7, 9, 8, 7, 4, 8};
 		System.out.println(s.solution(h));
 	}
