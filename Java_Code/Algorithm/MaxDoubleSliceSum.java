@@ -1,46 +1,39 @@
-import java.lang;
+
+class Info{
+	int sum_from_front = 0;
+	int sum_from_back = 0;
+}
 
 class MaxDoubleSliceSum {
-	static final int ALWAYS_SAME = 0;
-
 	public int solution(int[] A) {
 		if (A == null || A.length == 3) {
 			return 0;
 		}
 		
-		BidirectionSum[] bidirectionSums = new BidirectionSum[A.length];
-		for(int i = 0; i < bidirectionSums.length; ++i){
-		    bidirectionSums[i] = new BidirectionSum();
+		Info[] infos = new Info[A.length];
+		for(int i = 0; i < infos.length; ++i) {
+			infos[i] = new Info();
 		}
 		
-		int max_forward_ending_here = A[1];
-		bidirectionSums[1].max_forward_ending_here = max_forward_ending_here;
-		
-		int max_reverse_ending_here = A[A.length - 2];
-		bidirectionSums[A.length - 2].max_reverse_ending_here = max_reverse_ending_here;
-		
-		for(int i = 2; i < A.length - 1; ++i) {
-			max_forward_ending_here = 
-					Math.max(A[i], max_forward_ending_here + A[i]);
-			bidirectionSums[i].max_forward_ending_here = max_forward_ending_here;
-			
-			int reverse_index = A.length - i - 1;
-			max_reverse_ending_here = 
-					Math.max(A[reverse_index], max_reverse_ending_here + A[reverse_index]);
-			bidirectionSums[reverse_index].max_reverse_ending_here = max_reverse_ending_here;
-		}
-		
-		int max = 0;
-		for(int i = 0; i < bidirectionSums.length - 2; ++i) {
-			int sum = Math.max(0, bidirectionSums[i].max_forward_ending_here) 
-					+ Math.max(0, bidirectionSums[i + 2].max_reverse_ending_here);
-			max = Math.max(max, sum);
-		}
-		return max;
-	}
-}
+		infos[1].sum_from_front = A[1];
+		infos[A.length - 2].sum_from_back = A[A.length - 2];
+		for (int i = 2; i < infos.length - 2; ++i) {
+			infos[i].sum_from_front = Math.max(A[i], 
+					infos[i - 1].sum_from_front + A[i]);
 
-class BidirectionSum {
-	int max_forward_ending_here = 0;
-	int max_reverse_ending_here = 0;
+			int backIndex = A.length - i - 1;
+			infos[backIndex].sum_from_back = Math.max(A[backIndex], 
+					infos[backIndex + 1].sum_from_back + A[backIndex]);
+		}
+		
+		int maxSlice = 0;
+		for(int i = 0 ; i < A.length - 2; ++i) {
+			int partSumFromFront = Math.max(0,  infos[i].sum_from_front);
+			int partSumFromBack = Math.max(0, infos[i + 2].sum_from_back);
+			int sum = partSumFromFront + partSumFromBack;
+			
+			maxSlice = Math.max(maxSlice, sum);
+		}
+		return maxSlice;
+	}
 }
